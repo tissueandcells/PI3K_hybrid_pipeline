@@ -92,7 +92,7 @@ PI3K_hybrid_pipeline/
 ### Conda environment (recommended)
 
 ```bash
-git clone https://github.com/kkubrakirboga/PI3K_hybrid_pipeline.git
+git clone https://github.com/tissueandcells/PI3K_hybrid_pipeline.git
 cd PI3K_hybrid_pipeline
 conda env create -f environment.yml
 conda activate pi3k_pipeline
