@@ -1,0 +1,54 @@
+# PI3K hybrid pipeline — Python dependencies
+# Pinned versions match the manuscript's Section 2.9 "Software and data availability"
+
+# Core scientific stack
+numpy==1.26.4
+scipy==1.14.0
+pandas==2.2.2
+scikit-learn==1.5.1
+matplotlib==3.9.0
+seaborn==0.13.2
+
+# Cheminformatics
+rdkit==2024.09.3
+pubchempy==1.0.4
+chembl_webresource_client==0.10
+
+# Deep learning (CUDA 12.x)
+torch==2.3.1
+torch-geometric==2.5.3
+torch-scatter==2.1.2
+torch-sparse==0.6.18
+
+# ADMET prediction
+admet-ai==1.3.0
+
+# Structure preparation + docking
+pdbfixer==1.11
+openbabel-wheel==3.1.1.21
+meeko==0.7.1
+vina==1.2.3
+
+# Molecular dynamics
+acpype==2023.10.27
+parmed==4.2.2
+
+# Statistical analysis
+statsmodels==0.14.2
+
+# Notebook and plotting extras
+jupyter==1.0.0
+jupyterlab==4.2.2
+tqdm==4.66.4
+pyyaml==6.0.1
+rich==13.7.1
+
+# Figure export
+svgwrite==1.4.3
+pillow==10.3.0
+
+# Development tools (optional; install with `pip install -r requirements-dev.txt`)
+# pytest==8.2.2
+# black==24.4.2
+# mypy==1.10.0
+# flake8==7.1.0
