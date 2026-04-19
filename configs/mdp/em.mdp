@@ -1,0 +1,23 @@
+; em.mdp — Energy minimization (steepest descent)
+; PI3Kβ / CPD_0332 complex — system prepared with AMBER14SB / GAFF2 / TIP3P
+
+integrator              = steep
+emtol                   = 500.0         ; kJ/mol/nm
+emstep                  = 0.01
+nsteps                  = 50000
+
+; Neighbour searching
+cutoff-scheme           = Verlet
+ns_type                 = grid
+nstlist                 = 10
+rlist                   = 1.0
+
+; Electrostatics + vdW
+coulombtype             = PME
+rcoulomb                = 1.0
+vdwtype                 = cut-off
+rvdw                    = 1.0
+DispCorr                = EnerPres
+
+; No constraints during EM (minimiser handles bad contacts)
+constraints             = none

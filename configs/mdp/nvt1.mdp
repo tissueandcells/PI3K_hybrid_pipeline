@@ -1,0 +1,50 @@
+; nvt1.mdp — Stage 1: NVT 100 ps with heavy-atom position restraints (1000 kJ/mol/nm²)
+; 2 fs timestep with h-bonds constrained
+
+integrator              = md
+dt                      = 0.002
+nsteps                  = 50000         ; 100 ps
+nstxout-compressed      = 5000          ; 10 ps
+nstenergy               = 1000
+nstlog                  = 1000
+
+; Neighbour searching
+cutoff-scheme           = Verlet
+ns_type                 = grid
+nstlist                 = 10
+
+; Electrostatics + vdW
+coulombtype             = PME
+rcoulomb                = 1.0
+vdwtype                 = cut-off
+rvdw                    = 1.0
+DispCorr                = EnerPres
+pme_order               = 4
+fourierspacing          = 0.12
+
+; Temperature coupling — V-rescale (Bussi et al., 2007)
+tcoupl                  = V-rescale
+tc-grps                 = Protein  Non-Protein
+tau_t                   = 0.1  0.1
+ref_t                   = 300  300
+
+; No pressure coupling in NVT
+pcoupl                  = no
+
+; Constraints
+constraints             = h-bonds
+constraint-algorithm    = LINCS
+lincs-iter              = 1
+lincs-order             = 4
+continuation            = no
+
+; Generate velocities at 300 K
+gen-vel                 = yes
+gen-temp                = 300
+gen-seed                = 42
+
+; Position restraints activated via -DPOSRES_STAGE1 in topology
+define                  = -DPOSRES_STAGE1
+
+; Periodic boundary conditions
+pbc                     = xyz
